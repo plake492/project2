@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     peopleNeeded: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: falsels
     },
     date: {
       type: DataTypes.INTEGER,

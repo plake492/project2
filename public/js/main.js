@@ -2,6 +2,7 @@ $(document).ready(function() {
   $("#submit").on("click", function(event) {
     event.preventDefault();
 
+
     const title = $("#title")
       .val()
       .trim();
@@ -20,27 +21,50 @@ $(document).ready(function() {
     const location = $("#location")
       .val()
       .trim();
-      
-    if (
-      !title.val().trim() ||
-      !category.val().trim() ||
-      !description.val().tirm() ||
-      !people_needed.val().trim() ||
-      !date.val().tirm() ||
-      !location.val().tirm()
-    ) {
-      return;
+
+    function captureFormData(event) {
+      if (
+        !title ||
+        !category ||
+        !description ||
+        !people_needed ||
+        !date ||
+        !location
+      ) {
+        return;
+      }
+
+      const newPost = {
+        title: title,
+        category: category,
+        description: description,
+        people_needed: people_needed,
+        date: date,
+        location: location
+      };
+
+      console.log(newPost);
+      addPost(newPost);
     }
 
-    const newPost = {
-      title: title,
-      category: category,
-      description: description,
-      people_needed: people_needed,
-      date: date,
-      location: location
-    };
+    function addPost(postData) {
+      $.post("/api/posts", postData)
+        .then(getPosts);
+        console.log("THIS IS THE POST DATA" + postData)
 
-    console.log(newPost);
+    }
+
+    function getPosts() {
+      $.get("/api/posts", function(data) {
+        console.log("THIS IS THE GET DATA" + data);
+        // var rowsToAdd = [];
+        // for (var i = 0; i < data.length; i++) {
+        //   rowsToAdd.push(createAuthorRow(data[i]));
+        // }
+        // renderAuthorList(rowsToAdd);
+        // nameInput.val("");
+      });
+    }
+    captureFormData();
   });
 });
