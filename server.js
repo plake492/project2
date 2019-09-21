@@ -19,8 +19,11 @@ app.use(express.static("public"));
   app.get("/", function(req, res) {
     res.render("index", { list: posts });
   });
-  app.get("/:id", function(req, res) {
+  app.get("/viewpost/:id", function(req, res) {
     res.render("post", posts[req.params.id]);
+  });
+  app.get("/createproject", function(req, res) {
+    res.render("createproject", { list: posts });
   });
 //! JUST FOR TESTING
 
