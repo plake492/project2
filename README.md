@@ -13,6 +13,4 @@ Create Post                 View Post                   User info
 - People Required *                                      - email *
 - date / time *                                          - name *
 - category *                                             - address *
-- Location *                                             - dob *
 
-test
