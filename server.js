@@ -12,6 +12,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+
+//! JUST FOR TESTING
+  const posts = require("./testObject")
+
+  app.get("/", function(req, res) {
+    res.render("index", { list: posts });
+  });
+  app.get("/:id", function(req, res) {
+    res.render("post", posts[req.params.id]);
+  });
+//! JUST FOR TESTING
+
 // Handlebars
 app.engine(
   "handlebars",
