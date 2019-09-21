@@ -1,30 +1,31 @@
+
+<section class="headImg">
+
+</section>
+
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+
+      {{#each list}}
+
+      <div class="col m3">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1569055240014-3a2a63b01e97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80">
+            <span class="card-title">{{title}}</span>
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          <div class="card-content">
+            <p>{{description}}</p>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+          <div class="card-action">
+            <a href="/viewpost/{{id}}">This is a link</a>
+          </div>
+        </div>
       </div>
+
+      {{/each}}
+
     </div>
   </div>
 </div>

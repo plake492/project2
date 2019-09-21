@@ -1,3 +1,15 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.headImg {
+  min-height: 547px;
+  background-image: url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.newProjectForm {
+  margin: 20px 50px 20px 50px;
+  /* background-color: rgb(25, 216, 216); */
+}
