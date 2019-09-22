@@ -2,7 +2,6 @@ $(document).ready(function() {
   $("#submit").on("click", function(event) {
     event.preventDefault();
 
-
     const title = $("#title")
       .val()
       .trim();

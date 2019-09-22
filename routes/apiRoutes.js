@@ -10,16 +10,28 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/projects", function(req, res) {
-    console.log(req.body);
-    db.Project.create(req.body).then(function(dbProject) {
-      res.json(dbProject);
+    db.Project.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
     });
   });
 
   // Delete an example by id
   app.delete("/api/projects/:id", function(req, res) {
-    db.Project.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Project.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
     });
+  });
+  // Added by Patrick
+  app.get("/", function(req, res) {
+    res.render("index", { list: db.projects });
+    console.log(db);
+  });
+  app.get("/viewpost/:id", function(req, res) {
+    res.render("post", db[req.params.id]);
+  });
+  app.get("/createproject", function(req, res) {
+    res.render("createproject", { list: db });
   });
 };

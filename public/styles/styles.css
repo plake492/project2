@@ -1,5 +1,5 @@
-.list-group-item {
-  line-height: 2.5;
+:root {
+  --blue: #427BBF;
 }
 
 .headImg {
@@ -9,7 +9,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.newProjectForm {
-  margin: 20px 50px 20px 50px;
-  /* background-color: rgb(25, 216, 216); */
+
+.nav-wrapper, .btn, .btn:hover {
+  background-color: var(--blue);
 }
+
+
+
+.newProjectForm {
+  margin: 20px 200px 20px 200px;
+}
+
+
