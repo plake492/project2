@@ -1,11 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var postProject = sequelize.define("Project", {
-    // id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     autoIncrement: true,
-    //     primaryKey: true
-    // },
+  var Project = sequelize.define("Project", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,11 +18,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     peopleNeeded: {
-      type: DataTypes.INTEGER,
-      allowNull: falsels
+      type: DataTypes.STRING,
+      allowNul: false
     },
     date: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATE,
       allowNull: false
     },
     location: {
@@ -39,5 +33,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return postProject;
+  return Project;
 };

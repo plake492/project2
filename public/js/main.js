@@ -12,7 +12,7 @@ $(document).ready(function() {
     const description = $("#description")
       .val()
       .trim();
-    const people_needed = $("#people_needed")
+    const peopleNeeded = $("#people_needed")
       .val()
       .trim();
     const date = $("#date")
@@ -27,35 +27,35 @@ $(document).ready(function() {
         !title ||
         !category ||
         !description ||
-        !people_needed ||
+        !peopleNeeded ||
         !date ||
         !location
       ) {
         return;
       }
 
-      const newPost = {
+      const newProject = {
         title: title,
         category: category,
         description: description,
-        people_needed: people_needed,
+        peopleNeeded: peopleNeeded,
         date: date,
         location: location
       };
 
-      console.log(newPost);
-      addPost(newPost);
+      console.log(newProject);
+      addProject(newProject);
     }
 
-    function addPost(postData) {
-      $.post("/api/posts", postData)
-        .then(getPosts);
-        console.log("THIS IS THE POST DATA" + postData)
+    function addProject(projectData) {
+      $.post("/api/projects", projectData)
+        .then(getProjects);
+        console.log("THIS IS THE POST DATA" + projectData)
 
     }
 
-    function getPosts() {
-      $.get("/api/posts", function(data) {
+    function getProjects() {
+      $.get("/api/projects", function(data) {
         console.log("THIS IS THE GET DATA" + data);
         // var rowsToAdd = [];
         // for (var i = 0; i < data.length; i++) {
