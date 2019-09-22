@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     let User = sequelize.define("User", {
-      
+        
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -15,6 +15,36 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [5-18]
             }
+        }, 
+
+        email: {
+            type: DataTypes.STRING, 
+            allowNull: false, 
+            validate: {
+                len: [2]
+            }
+        }, 
+
+        name: {
+            type: DataTypes.STRING, 
+            allowNull: false, 
+            validate: {
+                len: [1]
+            }
+        }, 
+
+        address: {
+            type: DataTypes.STRING, 
+            allowNull: false, 
+            validate: {
+                len: [1]
+            }
+        },
+
+        createdAt: {
+            type: DataType.DATE, 
+            allowNull: false, 
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         }
     });
 
@@ -23,8 +53,9 @@ module.exports = function (sequelize, DataTypes) {
       //When user is deleted, any information related with users is deleted
       User.hasMany(models.postProject, {
         onDelete: 'cascade'
-      })
+      }); 
     }
+
     return User;
 }
  
