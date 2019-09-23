@@ -23,7 +23,7 @@
 
 .signinForm {
   border: rgb(165, 164, 164) solid;
-  margin: 200px 400px 200px 400px;
+  margin: 150px 400px 200px 400px;
   padding: 50px;
 }
 /* .formBG {
@@ -40,5 +40,10 @@
   .newProjectForm {
     margin: 10px
     /* background-color: rgba(238, 236, 236, 0.651); */
+  }
+  .signinForm {
+    border: none;
+    margin: 10px;
+    padding: 10px;
   }
 }
