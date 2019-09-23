@@ -23,15 +23,5 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
-  // Added by Patrick
-  app.get("/", function(req, res) {
-    res.render("index", { list: db.projects });
-    console.log(db);
-  });
-  app.get("/viewpost/:id", function(req, res) {
-    res.render("post", db[req.params.id]);
-  });
-  app.get("/createproject", function(req, res) {
-    res.render("createproject", { list: db });
-  });
+
 };

@@ -22,6 +22,20 @@ module.exports = function(app) {
     });
   });
 
+  // Added by Patrick
+  app.get("/", function(req, res) {
+    res.render("index", { list: db.projects });
+  });
+  app.get("/viewpost/:id", function(req, res) {
+    res.render("post", db[req.params.id]);
+  });
+  app.get("/createproject", function(req, res) {
+    res.render("createproject", { list: db });
+  });
+  app.get("/signin", function(req, res) {
+    res.render("signin", { list: db });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
