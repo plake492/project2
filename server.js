@@ -14,17 +14,17 @@ app.use(express.static("public"));
 
 
 //! JUST FOR TESTING
-  const posts = require("./testObject")
+  // const posts = require("./testObject")
 
-  app.get("/", function(req, res) {
-    res.render("index", { list: posts });
-  });
-  app.get("/viewpost/:id", function(req, res) {
-    res.render("post", posts[req.params.id]);
-  });
-  app.get("/createproject", function(req, res) {
-    res.render("createproject", { list: posts });
-  });
+  // app.get("/", function(req, res) {
+  //   res.render("index", { list: posts });
+  // });
+  // app.get("/viewpost/:id", function(req, res) {
+  //   res.render("post", posts[req.params.id]);
+  // });
+  // app.get("/createproject", function(req, res) {
+  //   res.render("createproject", { list: posts });
+  // });
 //! JUST FOR TESTING
 
 // Handlebars
@@ -38,7 +38,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/hbsRoutes")(app);
 
 var syncOptions = { force: false };
 
