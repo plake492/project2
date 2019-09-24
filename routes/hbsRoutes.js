@@ -24,20 +24,26 @@ module.exports = function(app) {
 
   // Added by Patrick
   app.get("/", function(req, res) {
-    res.render("index", { list: db });
-    console.log(db);
+    db.Project.findAll({}).then(function(data) {
+      res.render("index", { list: data });
+    });
   });
+
   app.get("/viewpost/:id", function(req, res) {
-    res.render("post", db[req.params.id]);
+    db.Project.findOne({ where: { id: req.params.id } }).then(function(data) {
+      res.render("post", data.dataValues);
+      console.log(data.dataValues);
+    });
   });
+
   app.get("/createproject", function(req, res) {
-    res.render("createproject", { list: db });
+    res.render("createproject");
   });
   app.get("/signin", function(req, res) {
-    res.render("signin", { list: db });
+    res.render("signin");
   });
   app.get("/newprofile", function(req, res) {
-    res.render("newprofile", { list: db });
+    res.render("newprofile");
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
