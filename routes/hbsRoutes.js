@@ -2,17 +2,16 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Project.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+  // app.get("/example/:id", function(req, res) {
+  //   db.Project.findOne({ where: { id: req.params.id } }).then(function(
+  //     dbExample
+  //   ) {
+  //     res.render("example", {
+  //       example: dbExample
+  //     });
+  //   });
+  // });
 
-  // Added by Patrick
   app.get("/", function(req, res) {
     db.Project.findAll({}).then(function(data) {
       res.render("index", { list: data });
