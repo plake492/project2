@@ -11,7 +11,7 @@ $(document).ready(function() {
     const description = $("#description")
       .val()
       .trim();
-    const people_needed = $("#people_needed")
+    const peopleNeeded = $("#people_needed")
       .val()
       .trim();
     const date = $("#date")
@@ -20,27 +20,50 @@ $(document).ready(function() {
     const location = $("#location")
       .val()
       .trim();
-      
-    if (
-      !title.val().trim() ||
-      !category.val().trim() ||
-      !description.val().tirm() ||
-      !people_needed.val().trim() ||
-      !date.val().tirm() ||
-      !location.val().tirm()
-    ) {
-      return;
+
+    function captureFormData(event) {
+      if (
+        !title ||
+        !category ||
+        !description ||
+        !peopleNeeded ||
+        !date ||
+        !location
+      ) {
+        return;
+      }
+
+      const newProject = {
+        title: title,
+        category: category,
+        description: description,
+        peopleNeeded: peopleNeeded,
+        date: date,
+        location: location
+      };
+
+      console.log(newProject);
+      addProject(newProject);
     }
 
-    const newPost = {
-      title: title,
-      category: category,
-      description: description,
-      people_needed: people_needed,
-      date: date,
-      location: location
-    };
+    function addProject(projectData) {
+      $.post("/api/projects", projectData)
+        .then(getProjects);
+        console.log("THIS IS THE POST DATA" + projectData)
 
-    console.log(newPost);
+    }
+
+    function getProjects() {
+      $.get("/api/projects", function(data) {
+        console.log("THIS IS THE GET DATA" + data);
+        // var rowsToAdd = [];
+        // for (var i = 0; i < data.length; i++) {
+        //   rowsToAdd.push(createAuthorRow(data[i]));
+        // }
+        // renderAuthorList(rowsToAdd);
+        // nameInput.val("");
+      });
+    }
+    captureFormData();
   });
 });

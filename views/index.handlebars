@@ -1,32 +1,46 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right: 50px">
+      <li><a href="/createproject">Create New Post</a></li>
+      <li><a href="/signin">Sign In</a></li>
+    </ul>
+  </div>
+</nav>
 
-<section class="headImg">
+<section class="headImg"></section>
 
+<section>
+  <div class="container">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ad itaque nemo nisi incidunt sed. Amet
+      praesentium perspiciatis itaque. Hic, et provident natus aliquid illum cumque quae in. Odit, sequi!
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam reprehenderit id veritatis possimus qui eum fuga
+      debitis hic sint inventore? Nam id distinctio officiis, labore quasi alias expedita error excepturi?</p>
+  </div>
 </section>
 
 <div id="home">
-  <div class="container">
-    <div class="row">
+  <div class="row">
 
-      {{#each list}}
+    {{#each list}}
 
-      <div class="col m3">
-        <div class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1569055240014-3a2a63b01e97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80">
-            <span class="card-title">{{title}}</span>
-          </div>
-          <div class="card-content">
-            <p>{{description}}</p>
-          </div>
-          <div class="card-action">
-            <a href="/viewpost/{{id}}">This is a link</a>
-          </div>
+    <div class="col m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="">
+          <span class="card-title">{{title}}</span>
+        </div>
+        <div class="card-content">
+          <p>{{description}}</p>
+        </div>
+        <div class="card-action">
+          <a href="/viewpost/{{id}}">This is a link</a>
         </div>
       </div>
-
-      {{/each}}
-
     </div>
+
+    {{/each}}
+
   </div>
 </div>
 

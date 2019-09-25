@@ -1,7 +1,6 @@
-.list-group-item {
-  line-height: 2.5;
+:root {
+  --blue: #427BBF;
 }
-
 .headImg {
   min-height: 547px;
   background-image: url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80");
@@ -9,7 +8,37 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.nav-wrapper, .btn, .btn:hover {
+  background-color: var(--blue);
+}
 .newProjectForm {
-  margin: 20px 50px 20px 50px;
-  /* background-color: rgb(25, 216, 216); */
+  margin: 20px 200px 20px 200px;
+  /* background-color: rgba(238, 236, 236, 0.651); */
+}
+.signinForm {
+  border: rgb(165, 164, 164) solid;
+  margin: 150px 400px 200px 400px;
+  padding: 50px;
+}
+
+/* .formBG {
+  background: url("https://images.unsplash.com/photo-1564121211835-e88c852648ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80") center;
+  padding: 100px 50px 200px 50px;
+
+} */
+
+
+
+
+
+@media screen and (max-width: 950px) {
+  .newProjectForm {
+    margin: 10px
+    /* background-color: rgba(238, 236, 236, 0.651); */
+  }
+  .signinForm {
+    border: none;
+    margin: 10px;
+    padding: 10px;
+  }
 }
