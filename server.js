@@ -12,21 +12,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
-
-//! JUST FOR TESTING
-  // const posts = require("./testObject")
-
-  // app.get("/", function(req, res) {
-  //   res.render("index", { list: posts });
-  // });
-  // app.get("/viewpost/:id", function(req, res) {
-  //   res.render("post", posts[req.params.id]);
-  // });
-  // app.get("/createproject", function(req, res) {
-  //   res.render("createproject", { list: posts });
-  // });
-//! JUST FOR TESTING
-
 // Handlebars
 app.engine(
   "handlebars",

@@ -29,4 +29,10 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
 };

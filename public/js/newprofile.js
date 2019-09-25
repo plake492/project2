@@ -44,15 +44,14 @@ $(document).ready(function() {
   
       function addNewUser(newUserData) {
         $.post("/api/users", newUserData)
-          .then(getUsers);
+          .then(getUsers(newUserData));
           console.log("THIS IS THE POST DATA" + newUserData)
   
       }
   
       function getUsers() {
         $.get("/api/users", function(data) {
-          console.log("THIS IS THE GET DATA" + data);
-          // var rowsToAdd = [];
+          console.log(data);
           // for (var i = 0; i < data.length; i++) {
           //   rowsToAdd.push(createAuthorRow(data[i]));
           // }
