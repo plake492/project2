@@ -1,5 +1,5 @@
 var db = require("../models");
-var passport = require("../config/passport")
+var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all examples
@@ -21,14 +21,15 @@ module.exports = function(app) {
       email: req.body.email,
       name: req.body.name,
       address: req.body.address
-    }).then(function() {
-      res.redirect(307, "/api/login");
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-    });
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
   });
-
 
   // Delete an example by id
   app.delete("/api/projects/:id", function(req, res) {
@@ -38,22 +39,20 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
-  
+
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });
 
-   app.get("/api/user_data", function(req, res) {
+  app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       res.json({});
-    }
-    else {
+    } else {
       res.json({
         email: req.user.email,
         id: req.user.id
       });
     }
   });
-
 };
