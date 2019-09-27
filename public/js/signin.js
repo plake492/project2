@@ -23,19 +23,21 @@ $(document).ready(function() {
 
         };
   
-        console.log(userData);
-      }
+        console.log(userData);      
 
       loginUser(userData.username, userData.password);
       $("form").trigger("reset");
-
-    });
-  
-
-  
-      function loginUser(screenname, password) {
-        $.post("/")
       }
+    
+  
+      function loginUser(username, password) {
+      $.post("/api/signin", {
+        username: username, 
+        password: password
+      }).then(function(data) {
+        console.log(data); 
+      });
+    }
     //   function addNewUser(newUserData) {
     //     $.post("/api/users", newUserData)
     //       .then(getUsers(newUserData));
@@ -53,6 +55,7 @@ $(document).ready(function() {
     //     });
     //   }
       captureUserData();
+    });
     });
 
   
