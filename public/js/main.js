@@ -1,5 +1,28 @@
+// const API = {
+//   saveProject: function(projects) {
+//     return $.ajax({
+//       type: "POST",
+//       url: "api/projects",
+//       data: JSON.stringify(projects)
+//     });
+//   },
+//   getProjects: function() {
+//     return $.ajax({
+//       url: "api/projects",
+//       data: JSON.stringify(projects)
+//     });
+//   },
+//   deleteProject: function(id) {
+//     return $.ajax({
+//       url: "api/examples/" + id.id,
+//       type: "DELETE"
+//     });
+//   }
+// };
+
 $(document).ready(function() {
   $("#submit").on("click", function(event) {
+    alert("why dont you work");
     event.preventDefault();
 
     const title = $("#title")
@@ -21,7 +44,7 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    function captureFormData(event) {
+    function captureFormData() {
       if (
         !title ||
         !category ||
@@ -45,25 +68,46 @@ $(document).ready(function() {
       console.log(newProject);
       addProject(newProject);
     }
+    captureFormData();
 
     function addProject(projectData) {
-      $.post("/api/projects", projectData)
-        .then(getProjects);
-        console.log("THIS IS THE POST DATA" + projectData)
-
+      $.post("/api/projects", projectData).then(getProjects);
+      console.log("THIS IS THE POST DATA" + projectData);
     }
 
     function getProjects() {
       $.get("/api/projects", function(data) {
         console.log("THIS IS THE GET DATA" + data);
-        // var rowsToAdd = [];
-        // for (var i = 0; i < data.length; i++) {
-        //   rowsToAdd.push(createAuthorRow(data[i]));
-        // }
-        // renderAuthorList(rowsToAdd);
-        // nameInput.val("");
       });
     }
-    captureFormData();
+  });
+
+  $("#deletePost").on("click", function(event) {
+    event.preventDefault();
+    console.log("why dont you work");
+    // const idToDelete = $(this)
+    // .parent()
+    // .attr("data-id");
+    //   event.preventDefault();
+
+    //   function deleteProject() {
+    //     return $.ajax({
+    //       url: "api/projects/" + this.id,
+    //       type: "DELETE"
+    //     }).then(function() {});
+    //   }
+    //   deleteProject(this.data-id);
   });
 });
+
+// const handleDeleteBtnClick = function() {
+//   const idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
+
+//   API.deleteProjects(idToDelete).then(function() {});
+// };
+
+// // Add event listeners to the submit and delete buttons
+// // $submitBtn.on("click", handleFormSubmit);
+// $("#deleteButton").on("click", handleDeleteBtnClick);

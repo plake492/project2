@@ -22,7 +22,6 @@ module.exports = function(app) {
   app.get("/viewpost/:id", function(req, res) {
     db.Project.findOne({ where: { id: req.params.id } }).then(function(data) {
       res.render("post", data.dataValues);
-      console.log(data.dataValues);
     });
   });
 

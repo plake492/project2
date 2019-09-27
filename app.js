@@ -6,7 +6,6 @@
 // app.use(expressLayouts);
 // app.set('view engine', 'ejs');
 
-
 // app.use('/', require('/.routes/login'));
 // app.use('/users', require('/.routes/users'));
 
