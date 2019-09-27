@@ -29,11 +29,20 @@ module.exports = function(app) {
     res.render("createproject");
   });
   app.get("/signin", function(req, res) {
-    res.render("signin");
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+      res.render("signin");
   });
+
   app.get("/newprofile", function(req, res) {
+    if (req.user) {
+      res.redirect("member"); 
+    }
     res.render("newprofile");
   });
+  
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

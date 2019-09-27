@@ -17,15 +17,25 @@ $(document).ready(function() {
           return;
         }
   
-        const user = {
+        const userData = {
           username: username,
           password: password,
 
         };
   
-        console.log(user);
+        console.log(userData);
       }
+
+      loginUser(userData.username, userData.password);
+      $("form").trigger("reset");
+
+    });
   
+
+  
+      function loginUser(screenname, password) {
+        $.post("/")
+      }
     //   function addNewUser(newUserData) {
     //     $.post("/api/users", newUserData)
     //       .then(getUsers(newUserData));
@@ -44,5 +54,5 @@ $(document).ready(function() {
     //   }
       captureUserData();
     });
-  });
+
   
