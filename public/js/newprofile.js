@@ -41,6 +41,9 @@ $(document).ready(function() {
         console.log(newUser);
         addNewUser(newUser);
       }
+
+      $("form").trigger("reset");
+      
   
       function addNewUser(newUserData) {
         $.post("/api/users", newUserData)
