@@ -36,6 +36,14 @@ module.exports = function (app) {
     res.render("signin");
   });
 
+  app.get("/index", function (req, res) {
+    res.render("index");
+  });
+
+  // app.get("/post", function (req, res) {
+  //   res.render("post");
+  // });
+
   app.get("/newprofile", function (req, res) {
     res.render("newprofile");
   });
