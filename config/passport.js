@@ -2,7 +2,7 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var bcrypt = require("bcryptjs");
 
-var User = require("../public/users");
+var User = require("../public/js/users");
 
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {

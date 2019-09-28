@@ -1,9 +1,9 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
+    <a href="/home" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right: 50px">
       <li><a href="/createproject">Create New Post</a></li>
-      <li><a href="/signin">Sign In</a></li>
+      <li><a href="/">Sign In</a></li>
     </ul>
   </div>
 </nav>
@@ -23,9 +23,11 @@
               <p>number of people needed: {{peopleNeeded}}</p>
               <strong>Description:</strong> {{description}}
             </p>
-            <a href="/">← Back To Home</a>
+            <a href="/home">← Back To Home</a>
             <br>
-            <button class="waves-effect waves-light btn" id="deletePost"><a href="#">XXXXXX</a></button>
+            <button class="waves-effect waves-light btn"><a id="signUpProject" href="#">sign up</a></button>
+            <br>
+            <button class="waves-effect waves-light btn" id="deletePost"><a href="#">delete post</a></button>
         </div>
       </div>
     </div>

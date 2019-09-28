@@ -1,28 +1,5 @@
-// const API = {
-//   saveProject: function(projects) {
-//     return $.ajax({
-//       type: "POST",
-//       url: "api/projects",
-//       data: JSON.stringify(projects)
-//     });
-//   },
-//   getProjects: function() {
-//     return $.ajax({
-//       url: "api/projects",
-//       data: JSON.stringify(projects)
-//     });
-//   },
-//   deleteProject: function(id) {
-//     return $.ajax({
-//       url: "api/examples/" + id.id,
-//       type: "DELETE"
-//     });
-//   }
-// };
-
 $(document).ready(function() {
   $("#submit").on("click", function(event) {
-    alert("why dont you work");
     event.preventDefault();
 
     const title = $("#title")
@@ -40,7 +17,22 @@ $(document).ready(function() {
     const date = $("#date")
       .val()
       .trim();
-    const location = $("#location")
+    const address = $("#streetAddress")
+      .val()
+      .trim();
+    const addressLine2 = $("#ddressLine2")
+      .val()
+      .trim();
+    const city = $("#city")
+      .val()
+      .trim();
+    const state = $("#state")
+      .val()
+      .trim();
+    const zipCode = $("#zipCode")
+      .val()
+      .trim();
+    const country = $("#country")
       .val()
       .trim();
 
@@ -51,7 +43,11 @@ $(document).ready(function() {
         !description ||
         !peopleNeeded ||
         !date ||
-        !location
+        !address ||
+        !city ||
+        !state ||
+        !zipCode ||
+        !country
       ) {
         return;
       }
@@ -62,7 +58,12 @@ $(document).ready(function() {
         description: description,
         peopleNeeded: peopleNeeded,
         date: date,
-        location: location
+        address: address,
+        addressLine2: addressLine2,
+        city: city,
+        state: state,
+        zipCode: zipCode,
+        country: country
       };
 
       console.log(newProject);
@@ -82,32 +83,13 @@ $(document).ready(function() {
     }
   });
 
+  $("#signUpProject").on("click", function(event) {
+    event.preventDefault();
+    console.log("poop");
+  });
+
   $("#deletePost").on("click", function(event) {
     event.preventDefault();
     console.log("why dont you work");
-    // const idToDelete = $(this)
-    // .parent()
-    // .attr("data-id");
-    //   event.preventDefault();
-
-    //   function deleteProject() {
-    //     return $.ajax({
-    //       url: "api/projects/" + this.id,
-    //       type: "DELETE"
-    //     }).then(function() {});
-    //   }
-    //   deleteProject(this.data-id);
   });
 });
-
-// const handleDeleteBtnClick = function() {
-//   const idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
-
-//   API.deleteProjects(idToDelete).then(function() {});
-// };
-
-// // Add event listeners to the submit and delete buttons
-// // $submitBtn.on("click", handleFormSubmit);
-// $("#deleteButton").on("click", handleDeleteBtnClick);

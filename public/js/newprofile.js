@@ -14,12 +14,37 @@ $(document).ready(function() {
     const name = $("#newName")
       .val()
       .trim();
-    const address = $("#newAddress")
+    const address = $("#newStreetAddress")
+      .val()
+      .trim();
+    const addressLine2 = $("#newStreetAddressLine2")
+      .val()
+      .trim();
+    const city = $("#newCity")
+      .val()
+      .trim();
+    const state = $("#newState")
+      .val()
+      .trim();
+    const zipCode = $("#newZipCode")
+      .val()
+      .trim();
+    const country = $("#newCountry")
       .val()
       .trim();
 
     function captureNewUserData() {
-      if (!username || !password || !email || !name || !address) {
+      if (
+        !username ||
+        !password ||
+        !email ||
+        !name ||
+        !address ||
+        !city ||
+        !state ||
+        !zipCode ||
+        !country
+      ) {
         return;
       }
 
@@ -28,7 +53,12 @@ $(document).ready(function() {
         password: password,
         email: email,
         name: name,
-        address: address
+        address: address,
+        addressLine2: addressLine2,
+        city: city,
+        state: state,
+        zipCode: zipCode,
+        country: country
       };
 
       console.log(newUser);
@@ -43,11 +73,6 @@ $(document).ready(function() {
     function getUsers() {
       $.get("/api/users", function(data) {
         console.log(data);
-        // for (var i = 0; i < data.length; i++) {
-        //   rowsToAdd.push(createAuthorRow(data[i]));
-        // }
-        // renderAuthorList(rowsToAdd);
-        // nameInput.val("");
       });
     }
     captureNewUserData();

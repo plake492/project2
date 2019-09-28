@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var ProjectTwo = sequelize.define("Project", {
+  var Project = sequelize.define("Project", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,13 +25,48 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false
     },
-    location: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3 - 300]
+        len: [3 - 100]
+      }
+    },
+    addressLine2: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1]
+      }
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    zipCode: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
       }
     }
   });
-  return ProjectTwo;
+  return Project;
 };
