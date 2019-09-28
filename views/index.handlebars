@@ -1,9 +1,9 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
+    <a href="/home" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right: 50px">
       <li><a href="/createproject">Create New Post</a></li>
-      <li><a href="/signin">Sign In</a></li>
+      <li><a href="/">Sign In</a></li>
     </ul>
   </div>
 </nav>
@@ -16,6 +16,7 @@
       praesentium perspiciatis itaque. Hic, et provident natus aliquid illum cumque quae in. Odit, sequi!
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam reprehenderit id veritatis possimus qui eum fuga
       debitis hic sint inventore? Nam id distinctio officiis, labore quasi alias expedita error excepturi?</p>
+
   </div>
 </section>
 
@@ -28,10 +29,11 @@
       <div class="card">
         <div class="card-image">
           <img src="">
-          <span class="card-title">{{title}}</span>
         </div>
         <div class="card-content">
+          <span class="card-title">{{title}}</span>
           <p>{{description}}</p>
+          <p>{{location}}</p>
         </div>
         <div class="card-action">
           <a href="/viewpost/{{id}}">This is a link</a>

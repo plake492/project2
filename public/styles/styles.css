@@ -1,5 +1,5 @@
 :root {
-  --blue: #427BBF;
+  --blue: #427bbf;
 }
 .headImg {
   min-height: 547px;
@@ -8,7 +8,9 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.nav-wrapper, .btn, .btn:hover {
+.nav-wrapper,
+.btn,
+.btn:hover {
   background-color: var(--blue);
 }
 .newProjectForm {
@@ -17,23 +19,18 @@
 }
 .signinForm {
   border: rgb(165, 164, 164) solid;
-  margin: 150px 400px 200px 400px;
+  margin: 150px 20% 200px 20%;
   padding: 50px;
 }
 
 /* .formBG {
   background: url("https://images.unsplash.com/photo-1564121211835-e88c852648ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80") center;
   padding: 100px 50px 200px 50px;
-
 } */
-
-
-
-
 
 @media screen and (max-width: 950px) {
   .newProjectForm {
-    margin: 10px
+    margin: 10px;
     /* background-color: rgba(238, 236, 236, 0.651); */
   }
   .signinForm {

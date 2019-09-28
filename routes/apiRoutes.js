@@ -3,11 +3,6 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/projects", function(req, res) {
-    db.Project.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
 
   // Create a new example
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
@@ -31,8 +26,21 @@ module.exports = function(app) {
       });
   });
 
-  // Delete an example by id
+  app.get("/api/projects", function(req, res) {
+    db.Project.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
+  app.post("/api/projects", function(req, res) {
+    db.Project.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
+    });
+
+  });
+
   app.delete("/api/projects/:id", function(req, res) {
+    console.log(res);
     db.Project.destroy({ where: { id: req.params.id } }).then(function(
       dbExample
     ) {
@@ -45,7 +53,8 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-  app.get("/api/user_data", function(req, res) {
+  app.get("/api/user", function(req, res) {
+
     if (!req.user) {
       res.json({});
     } else {
@@ -59,6 +68,12 @@ module.exports = function(app) {
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
+    });
+  });
+
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
     });
   });
 };

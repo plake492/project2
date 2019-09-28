@@ -1,37 +1,33 @@
 $(document).ready(function() {
-    $("#signin").on("click", function(event) {
-      event.preventDefault();
-  
-      const username = $("#username")
-        .val()
-        .trim();
-      const password = $("#password")
-        .val()
-        .trim();
-    
-      function captureUserData(event) {
-        if (
-          !username ||
-          !password
-        ) {
-          return;
-        }
-  
-        const user = {
-          username: username,
-          password: password,
+  $("#signin").on("click", function(event) {
+    event.preventDefault();
 
-        };
-  
-        console.log(user);
+    var username = $("#username")
+      .val()
+      .trim();
+    const password = $("#password")
+      .val()
+      .trim();
+
+    function captureUserData() {
+      if (!username || !password) {
+        return;
       }
-  
+
+      const user = {
+        username: username,
+        password: password
+      };
+
+      console.log(user);
+    }
+
     //   function addNewUser(newUserData) {
     //     $.post("/api/users", newUserData)
     //       .then(getUsers(newUserData));
     //       console.log("THIS IS THE POST DATA" + newUserData)
     //   }
-  
+
     //   function getUsers() {
     //     $.get("/api/users", function(data) {
     //       console.log(data);
@@ -42,7 +38,6 @@ $(document).ready(function() {
     //       // nameInput.val("");
     //     });
     //   }
-      captureUserData();
-    });
+    captureUserData();
   });
-  
+});
