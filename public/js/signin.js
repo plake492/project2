@@ -2,10 +2,10 @@ $(document).ready(function() {
     $("#signin").on("click", function(event) {
       event.preventDefault();
   
-      const username = $("#username")
+      let username = $("#username")
         .val()
         .trim();
-      const password = $("#password")
+      let password = $("#password")
         .val()
         .trim();
     
@@ -17,15 +17,26 @@ $(document).ready(function() {
           return;
         }
   
-        const user = {
+        const userData = {
           username: username,
           password: password,
 
         };
   
-        console.log(user);
+        console.log(userData);      
+
+      loginUser(userData.username, userData.password);
       }
+    
   
+      function loginUser(username, password) {
+      $.post("/api/signin", {
+        username: username, 
+        password: password
+      }).then(function(data) {
+        window.location.replace(data); 
+      });
+    }
     //   function addNewUser(newUserData) {
     //     $.post("/api/users", newUserData)
     //       .then(getUsers(newUserData));
@@ -44,5 +55,6 @@ $(document).ready(function() {
     //   }
       captureUserData();
     });
-  });
+    });
+
   
