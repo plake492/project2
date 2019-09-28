@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Project = sequelize.define("Project", {
+  var ProjectTwo = sequelize.define("Project", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,5 +33,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Project;
+  return ProjectTwo;
 };
