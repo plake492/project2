@@ -34,10 +34,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     addressLine2: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
