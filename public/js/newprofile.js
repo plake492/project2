@@ -2,6 +2,50 @@ $(document).ready(function() {
   $("#signup").on("click", function(event) {
     event.preventDefault();
 
+  
+      function captureNewUserData(event) {
+        if (
+          !username ||
+          !password||
+          !email ||
+          !name ||
+          !address 
+        ) {
+          return;
+        }
+  
+        const newUser = {
+          username: username,
+          password: password,
+          email: email,
+          name: name,
+          address: address
+        };
+  
+        console.log(newUser);
+        addNewUser(newUser);
+      }
+
+      $("form").trigger("reset");
+      
+  
+      function addNewUser(newUserData) {
+        $.post("/api/signup", newUserData)
+          .then(getUsers(newUserData));
+          console.log("THIS IS THE POST DATA" + newUserData)
+  
+      }
+  
+      function getUsers() {
+        $.get("/api/signup", function(data) {
+          console.log(data);
+          // for (var i = 0; i < data.length; i++) {
+          //   rowsToAdd.push(createAuthorRow(data[i]));
+          // }
+          // renderAuthorList(rowsToAdd);
+          // nameInput.val("");
+        });
+
     const username = $("#newUsername")
       .val()
       .trim();

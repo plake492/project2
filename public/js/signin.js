@@ -1,4 +1,42 @@
 $(document).ready(function() {
+    $("#signin").on("click", function(event) {
+      event.preventDefault();
+  
+      let username = $("#username")
+        .val()
+        .trim();
+      let password = $("#password")
+        .val()
+        .trim();
+    
+      function captureUserData(event) {
+        if (
+          !username ||
+          !password
+        ) {
+          return;
+        }
+  
+        const userData = {
+          username: username,
+          password: password,
+
+        };
+  
+        console.log(userData);      
+
+      loginUser(userData.username, userData.password);
+      }
+    
+  
+      function loginUser(username, password) {
+      $.post("/api/signin", {
+        username: username, 
+        password: password
+      }).then(function(data) {
+        window.location.replace(data); 
+      });
+    }
   $("#signin").on("click", function(event) {
     event.preventDefault();
 
@@ -38,6 +76,8 @@ $(document).ready(function() {
     //       // nameInput.val("");
     //     });
     //   }
+
     captureUserData();
   });
 });
+

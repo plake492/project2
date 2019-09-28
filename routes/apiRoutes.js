@@ -1,7 +1,9 @@
+
 var db = require("../models");
 var passport = require("../config/passport");
 var bcrypt = require("bcryptjs");
 const saltRounds = 1;
+
 
 module.exports = function(app) {
   // Get all examples
@@ -56,6 +58,18 @@ module.exports = function(app) {
     });
   });
 
+
+  //newprofile
+  app.post("/api/signup", function(req, res) {
+    db.User.create(
+      req.body
+      ).then(function() {
+      res.redirect(307, "/api/signin"); 
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
@@ -70,13 +84,33 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+
   });
 
-  app.get("/api/users", function(req, res) {
+  app.get("/api/signup", function(req, res) {
     db.User.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
+
+  // Route to login 
+  app.post("/api/signin", passport.authenticate("local"), function(req, res) {
+    res.json("/members"); 
+  }); 
+
+  app.get("api/user_data", function(req, res) {
+    if(!req.user) {
+      res.json({})
+    }
+    else {
+      res.json({
+        username: req.username, 
+        id: req.user.id
+      });
+    }
+  });
+  //hello
+
 
   // app.post("/api/users", function(req, res) {
   //   db.User.create(req.body).then(function(dbExample) {
