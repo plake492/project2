@@ -1,25 +1,23 @@
-var express = require("express");
-var session = require("express-session");
-// Requiring passport as we've configured it
-var passport = require("./config/passport");
-var exphbs = require("express-handlebars");
-var session = require("express-session");
-var passport = require("./config/passport");
-
+require("dotenv").config();
+const express = require("express");
+const exphbs = require("express-handlebars");
+const session = require("express-session");
+const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
-
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public")); // needs '__dirname +' for hosted
 
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -36,14 +34,14 @@ app.set("view engine", "handlebars");
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Requiring our routes
 require("./routes/hbsRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
 
-var syncOptions = { force: false };
+var syncOptions = {
+  force: false
+};
 
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
