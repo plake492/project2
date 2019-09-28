@@ -1,4 +1,6 @@
-var db = require("../models");
+const db = require("../models");
+const path = require("path");
+const auth = require("../config/auth");
 
 module.exports = function(app) {
 
@@ -35,12 +37,13 @@ module.exports = function(app) {
       res.render("signin");
     }
   });
-  
-  app.get("/members", function(req, res) {
+
+  app.get("/members", auth, function(req, res) {
     res.render("members"); 
   })
 
   app.get("/logout", function(req, res) {
+    req.logout(); 
     res.redirect("/"); 
   }); 
 

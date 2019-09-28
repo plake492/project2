@@ -1,4 +1,5 @@
-var db = require("../models");
+const db = require("../models");
+const passport = require("../config/passport"); 
 
 module.exports = function(app) {
   // Get all examples
@@ -43,7 +44,7 @@ module.exports = function(app) {
   });
 
   // Route to login 
-  app.post("/api/signin", function(req, res) {
+  app.post("/api/signin", passport.authenticate("local"), function(req, res) {
     res.json("/members"); 
   }); 
 
@@ -53,7 +54,7 @@ module.exports = function(app) {
     }
     else {
       res.json({
-        username: req.user.username, 
+        username: req.username, 
         id: req.user.id
       });
     }
