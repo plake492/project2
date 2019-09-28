@@ -20,7 +20,7 @@ $(document).ready(function() {
     const address = $("#streetAddress")
       .val()
       .trim();
-    const addressLine2 = $("#ddressLine2")
+    const addressLine2 = $("#streetAddressLine2")
       .val()
       .trim();
     const city = $("#city")
