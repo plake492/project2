@@ -19,23 +19,23 @@ module.exports = function(app) {
     res.render("createproject");
   });
 
+  
+  app.get("/newprofile", function(req, res) {
+    if (req.user) {
+      res.render("members"); 
+    }
+    res.render("newprofile");
+  });
+  
   app.get("/signin", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
     } else {
       res.render("signin");
-    } 
-  });
-
-  app.get("/newprofile", function(req, res) {
-    if (req.user) {
-      res.redirect("/members"); 
-    } else {
-    res.render("newprofile");
     }
   });
-
+  
   app.get("/members", function(req, res) {
     res.render("members"); 
   })

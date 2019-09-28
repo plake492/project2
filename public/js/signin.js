@@ -2,10 +2,10 @@ $(document).ready(function() {
     $("#signin").on("click", function(event) {
       event.preventDefault();
   
-      const username = $("#username")
+      let username = $("#username")
         .val()
         .trim();
-      const password = $("#password")
+      let password = $("#password")
         .val()
         .trim();
     
@@ -26,7 +26,6 @@ $(document).ready(function() {
         console.log(userData);      
 
       loginUser(userData.username, userData.password);
-      $("form").trigger("reset");
       }
     
   
@@ -35,7 +34,7 @@ $(document).ready(function() {
         username: username, 
         password: password
       }).then(function(data) {
-        console.log(data); 
+        window.location.replace(data); 
       });
     }
     //   function addNewUser(newUserData) {
