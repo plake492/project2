@@ -36,6 +36,7 @@ module.exports = function(app) {
     db.Project.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
+
   });
 
   app.delete("/api/projects/:id", function(req, res) {
@@ -53,6 +54,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/user", function(req, res) {
+
     if (!req.user) {
       res.json({});
     } else {
