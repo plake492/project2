@@ -26,7 +26,7 @@ $(document).ready(function () {
     const state = $("#newState")
       .val()
       .trim();
-    const zipCode = $("#newZipCode")
+    const zipcode = $("#newZipCode")
       .val()
       .trim();
     const country = $("#newCountry")
@@ -52,21 +52,20 @@ $(document).ready(function () {
         name: name,
         address: address,
         addressLine2: addressLine2,
-        state,
-        zipcode,
-        country
+        city: city,
+        state: state,
+        zipcode: zipcode,
+        country: country
       };
 
       console.log(newUser);
       addNewUser(newUser);
     }
 
-    $("form").trigger("reset");
-
-
     function addNewUser(newUserData) {
       $.post("/api/signup", newUserData)
         .then(getUsers(newUserData));
+      window.location.replace(newUserData)
       console.log("THIS IS THE POST DATA" + newUserData)
 
     }
