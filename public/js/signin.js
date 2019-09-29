@@ -1,83 +1,82 @@
-$(document).ready(function() {
-    $("#signin").on("click", function(event) {
-      event.preventDefault();
-  
-      let username = $("#username")
-        .val()
-        .trim();
-      let password = $("#password")
-        .val()
-        .trim();
-    
-      function captureUserData(event) {
-        if (
-          !username ||
-          !password
-        ) {
-          return;
-        }
-  
-        const userData = {
-          username: username,
-          password: password,
-
-        };
-  
-        console.log(userData);      
-
-      loginUser(userData.username, userData.password);
-      }
-    
-  
-      function loginUser(username, password) {
-      $.post("/api/signin", {
-        username: username, 
-        password: password
-      }).then(function(data) {
-        window.location.replace(data); 
-      });
-    }
-  $("#signin").on("click", function(event) {
+$(document).ready(function () {
+  $("#signin").on("click", function (event) {
     event.preventDefault();
 
-    var username = $("#username")
+    let username = $("#username")
       .val()
       .trim();
-    const password = $("#password")
+    let password = $("#password")
       .val()
       .trim();
 
-    function captureUserData() {
-      if (!username || !password) {
+    function captureUserData(event) {
+      if (
+        !username ||
+        !password
+      ) {
         return;
       }
 
-      const user = {
+      const userData = {
         username: username,
-        password: password
+        password: password,
+
       };
 
-      console.log(user);
+      console.log(userData);
+
+      loginUser(userData.username, userData.password);
     }
 
-    //   function addNewUser(newUserData) {
-    //     $.post("/api/users", newUserData)
-    //       .then(getUsers(newUserData));
-    //       console.log("THIS IS THE POST DATA" + newUserData)
-    //   }
 
-    //   function getUsers() {
-    //     $.get("/api/users", function(data) {
-    //       console.log(data);
-    //       for (var i = 0; i < data.length; i++) {
-    //         rowsToAdd.push(createAuthorRow(data[i]));
-    //       }
-    //       // renderAuthorList(rowsToAdd);
-    //       // nameInput.val("");
-    //     });
-    //   }
+    function loginUser(username, password) {
+      $.post("/api/signin", {
+        username: username,
+        password: password
+      }).then(function (data) {
+        window.location.replace(data);
+      });
+    }
+    $("#signin").on("click", function (event) {
+      event.preventDefault();
 
+      var username = $("#username")
+        .val()
+        .trim();
+      const password = $("#password")
+        .val()
+        .trim();
+
+      function captureUserData() {
+        if (!username || !password) {
+          return;
+        }
+
+        const user = {
+          username: username,
+          password: password
+        };
+
+        console.log(user);
+      }
+
+      //   function addNewUser(newUserData) {
+      //     $.post("/api/users", newUserData)
+      //       .then(getUsers(newUserData));
+      //       console.log("THIS IS THE POST DATA" + newUserData)
+      //   }
+
+      //   function getUsers() {
+      //     $.get("/api/users", function(data) {
+      //       console.log(data);
+      //       for (var i = 0; i < data.length; i++) {
+      //         rowsToAdd.push(createAuthorRow(data[i]));
+      //       }
+      //       // renderAuthorList(rowsToAdd);
+      //       // nameInput.val("");
+      //     });
+      //   }
+    });
     captureUserData();
   });
 });
-
