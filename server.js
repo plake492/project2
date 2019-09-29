@@ -33,6 +33,7 @@ app.use(passport.session());
 // Requiring our routes
 require("./routes/hbsRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
+require("./routes/apiProjectsRoutes.js")(app);
 
 var syncOptions = { force: false };
 

@@ -3,16 +3,15 @@ var db = require("../models");
 module.exports = function(app) {
   app.get("/home", function(req, res) {
     db.Project.findAll({}).then(function(data) {
+      console.log(data);
       res.render("index", { list: data });
     });
   });
-
   app.get("/viewpost/:id", function(req, res) {
     db.Project.findOne({ where: { id: req.params.id } }).then(function(data) {
       res.render("post", data.dataValues);
     });
   });
-
   app.get("/createproject", function(req, res) {
     res.render("createproject");
   });

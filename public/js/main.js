@@ -76,11 +76,11 @@ $(document).ready(function() {
       console.log("THIS IS THE POST DATA" + projectData);
     }
 
-    function getProjects() {
-      $.get("/api/projects", function(data) {
-        console.log("THIS IS THE GET DATA" + data);
-      });
-    }
+    // function getProjects() {
+    //   $.get("/api/projects", function(data) {
+    //     console.log("THIS IS THE GET DATA" + data);
+    //   });
+    // }
   });
 
   $("#signUpProject").on("click", function(event) {
