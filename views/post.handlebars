@@ -8,26 +8,22 @@
   </div>
 </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
-            <strong>ID</strong>:{{id}}</p>
-          <p>
-            <p>
-              <strong>Text</strong>: {{title}}</p>
-            <p>
-              <p>number of people needed: {{peopleNeeded}}</p>
-              <strong>Description:</strong> {{description}}
-            </p>
+<div class="postImg">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div class="card mt-4">
+          <div class="project">
+            <h5 class="card-title"> {{title}}</h5>
+            <strong>Description:</strong> {{description}}
+            <p>Number of people needed: {{peopleNeeded}}</p>
+            <p>Address: {{address}}: {{city}}, {{state}} {{zipCode}} </p>
             <a href="/home">← Back To Home</a>
             <br>
-            <button class="waves-effect waves-light btn"><a id="signUpProject" href="#">sign up</a></button>
+            <a id="signUpProject" href="#">sign up</a>
             <br>
-            <button class="waves-effect waves-light btn" id="deletePost"><a href="#">delete post</a></button>
+            <a id="deletePost" href="#">delete post</a>
+          </div>
         </div>
       </div>
     </div>

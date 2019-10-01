@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  $("#submit").on("click", function (event) {
+$(document).ready(function() {
+  $("#submit").on("click", function(event) {
     event.preventDefault();
 
     const title = $("#title")
@@ -17,14 +17,16 @@ $(document).ready(function () {
     const date = $("#date")
       .val()
       .trim();
+    const image = $("#image")
+      .val()
+      .trim();
     const address = $("#streetAddress")
       .val()
       .trim();
-    const addressLine2 = $("#addressLine2")
-      .val()
+    const addressLine2 = $("#addressLine2").val();
     const city = $("#city")
       .val()
-      .trim()
+      .trim();
     const state = $("#state")
       .val()
       .trim();
@@ -57,6 +59,7 @@ $(document).ready(function () {
         description: description,
         peopleNeeded: peopleNeeded,
         date: date,
+        image: image,
         address: address,
         addressLine2: addressLine2,
         city: city,
@@ -76,18 +79,18 @@ $(document).ready(function () {
     }
 
     function getProjects() {
-      $.get("/api/projects", function (data) {
+      $.get("/api/projects", function(data) {
         console.log("THIS IS THE GET DATA" + data);
       });
     }
   });
 
-  $("#signUpProject").on("click", function (event) {
+  $("#signUpProject").on("click", function(event) {
     event.preventDefault();
     console.log("poop");
   });
 
-  $("#deletePost").on("click", function (event) {
+  $("#deletePost").on("click", function(event) {
     event.preventDefault();
     console.log("why dont you work");
   });
