@@ -74,7 +74,7 @@ module.exports = function(app) {
 
   // Route to login
   app.post("/api/signin", passport.authenticate("local"), function(req, res) {
-    res.json("/members");
+    res.json("/home");
   });
 
   app.get("api/user_data", function(req, res) {
