@@ -1,29 +1,29 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
+    <a href="/home" class="brand-logo" style="padding-left: 50px">Interactive Community Board</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right: 50px">
       <li><a href="/createproject">Create New Post</a></li>
-      <li><a href="/signin">Sign In</a></li>
+      <li><a href="/">Sign In</a></li>
     </ul>
   </div>
 </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
-            <strong>ID</strong>: {{id}}</p>
-          <p>
-            <p>
-              <strong>Text</strong>: {{title}}</p>
-            <p>
-              <p>number of people needed: {{peopleNeeded}}</p>
-              <strong>Description:</strong> {{description}}
-            </p>
-            <a href="/">← Back To Home</a>
+<div class="postImg">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <div class="card mt-4">
+          <div class="project">
+            <h5 class="card-title"> {{title}}</h5>
+            <strong>Description:</strong> {{description}}
+            <p>Number of people needed: {{peopleNeeded}}</p>
+            <p>Address: {{address}}: {{city}}, {{state}} {{zipCode}} </p>
+            <a href="/home">← Back To Home</a>
+            <br>
+            <a id="signUpProject" href="#">sign up</a>
+            <br>
+            <a id="deletePost" href="#">delete post</a>
+          </div>
         </div>
       </div>
     </div>

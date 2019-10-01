@@ -1,5 +1,9 @@
 :root {
-  --blue: #427BBF;
+  --theme: #427bbf;
+  --second: #427abfec;
+}
+.input-field {
+  color: rgb(0, 0, 0);
 }
 .headImg {
   min-height: 547px;
@@ -8,32 +12,72 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.nav-wrapper, .btn, .btn:hover {
-  background-color: var(--blue);
+.nav-wrapper,
+.btn,
+.btn:hover {
+  background-color: var(--theme);
 }
+
 .newProjectForm {
-  margin: 20px 200px 20px 200px;
+  margin: 0px 200px 0px 200px;
+  background-color: rgba(219, 219, 219, 0.9);
+  padding: 20px;
+
   /* background-color: rgba(238, 236, 236, 0.651); */
 }
 .signinForm {
   border: rgb(165, 164, 164) solid;
-  margin: 150px 400px 200px 400px;
+  margin: 150px 20% 0 20%;
   padding: 50px;
+  background-color: rgba(219, 219, 219, 0.9);
+  color: rgb(0, 0, 0);
+}
+.signupImg {
+  background: url("https://images.unsplash.com/photo-1542315099045-93937d70c67a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80")
+    no-repeat fixed center;
+  background-size: cover;
+  min-height: 953px;
+  padding: 0 0 100px 0;
+}
+/* "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80 */
+/* https://images.unsplash.com/photo-1490187763999-9f273a5b7516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80 */
+.newProjectImg {
+  background: url("https://images.unsplash.com/photo-1490187763999-9f273a5b7516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80")
+    no-repeat fixed center;
+  background-size: cover;
+  min-height: 953px;
+  padding: 100px 0 100px 0;
+}
+.postImg {
+  background: url("https://images.unsplash.com/photo-1474314881477-04c4aac40a0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80")
+    no-repeat fixed center;
+  background-size: cover;
+  min-height: 953px;
+  padding: 100px 0 100px 0;
+}
+
+.homepageImg {
+  background-color: var(--second);
+  background-size: cover;
+  min-height: 953px;
+  padding: 0px 0 100px 0;
+}
+.card {
+  /* background-color: var(--second); */
+}
+.project {
+  text-align: center;
+  padding: 75px;
 }
 
 /* .formBG {
   background: url("https://images.unsplash.com/photo-1564121211835-e88c852648ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80") center;
   padding: 100px 50px 200px 50px;
-
 } */
-
-
-
-
 
 @media screen and (max-width: 950px) {
   .newProjectForm {
-    margin: 10px
+    margin: 10px;
     /* background-color: rgba(238, 236, 236, 0.651); */
   }
   .signinForm {

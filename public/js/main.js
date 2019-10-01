@@ -17,18 +17,38 @@ $(document).ready(function() {
     const date = $("#date")
       .val()
       .trim();
-    const location = $("#location")
+    const image = $("#image")
+      .val()
+      .trim();
+    const address = $("#streetAddress")
+      .val()
+      .trim();
+    const addressLine2 = $("#addressLine2").val();
+    const city = $("#city")
+      .val()
+      .trim();
+    const state = $("#state")
+      .val()
+      .trim();
+    const zipCode = $("#zipCode")
+      .val()
+      .trim();
+    const country = $("#country")
       .val()
       .trim();
 
-    function captureFormData(event) {
+    function captureFormData() {
       if (
         !title ||
         !category ||
         !description ||
         !peopleNeeded ||
         !date ||
-        !location
+        !address ||
+        !city ||
+        !state ||
+        !zipCode ||
+        !country
       ) {
         return;
       }
@@ -39,31 +59,41 @@ $(document).ready(function() {
         description: description,
         peopleNeeded: peopleNeeded,
         date: date,
-        location: location
+        image: image,
+        address: address,
+        addressLine2: addressLine2,
+        city: city,
+        state: state,
+        zipCode: zipCode,
+        country: country
       };
 
       console.log(newProject);
       addProject(newProject);
     }
+    captureFormData();
 
     function addProject(projectData) {
-      $.post("/api/projects", projectData)
-        .then(getProjects);
-        console.log("THIS IS THE POST DATA" + projectData)
-
+      $.post("/api/projects", projectData).then(getProjects);
+      console.log("THIS IS THE POST DATA" + projectData);
     }
 
     function getProjects() {
       $.get("/api/projects", function(data) {
         console.log("THIS IS THE GET DATA" + data);
-        // var rowsToAdd = [];
-        // for (var i = 0; i < data.length; i++) {
-        //   rowsToAdd.push(createAuthorRow(data[i]));
-        // }
-        // renderAuthorList(rowsToAdd);
-        // nameInput.val("");
       });
     }
-    captureFormData();
+  });
+
+  $("#signUpProject").on("click", function(event) {
+    event.preventDefault();
+    console.log("poop");
+  });
+
+  $("#deletePost").on("click", function(event) {
+    event.preventDefault();
+    console.log("why dont you work");
   });
 });
+
+//hello
