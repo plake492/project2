@@ -1,6 +1,6 @@
 :root {
   --theme: #427bbf;
-  --second: #427abf70;
+  --second: #427abfec;
 }
 .input-field {
   color: rgb(0, 0, 0);
@@ -17,6 +17,7 @@
 .btn:hover {
   background-color: var(--theme);
 }
+
 .newProjectForm {
   margin: 0px 200px 0px 200px;
   background-color: rgba(219, 219, 219, 0.9);

@@ -25,6 +25,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false
     },
+    imageURL: {
+      type: DataTypes.STRING
+    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
