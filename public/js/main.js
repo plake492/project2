@@ -17,6 +17,9 @@ $(document).ready(function() {
     const date = $("#date")
       .val()
       .trim();
+    const image = $("#image")
+      .val()
+      .trim();
     const address = $("#streetAddress")
       .val()
       .trim();
@@ -56,6 +59,7 @@ $(document).ready(function() {
         description: description,
         peopleNeeded: peopleNeeded,
         date: date,
+        image: image,
         address: address,
         addressLine2: addressLine2,
         city: city,

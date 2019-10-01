@@ -1,8 +1,9 @@
 :root {
   --theme: #427bbf;
+  --second: #427abf70;
 }
 .input-field {
-  color :rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 .headImg {
   min-height: 547px;
@@ -35,13 +36,30 @@
     no-repeat fixed center;
   background-size: cover;
   min-height: 953px;
+  padding: 0 0 100px 0;
 }
+/* "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80 */
+/* https://images.unsplash.com/photo-1490187763999-9f273a5b7516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80 */
 .newProjectImg {
-  background: url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80")
+  background: url("https://images.unsplash.com/photo-1490187763999-9f273a5b7516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80")
     no-repeat fixed center;
   background-size: cover;
   min-height: 953px;
+  padding: 100px 0 100px 0;
 }
+.postImg {
+  background: url("https://images.unsplash.com/photo-1474314881477-04c4aac40a0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80")
+    no-repeat fixed center;
+  background-size: cover;
+  min-height: 953px;
+  padding: 100px 0 100px 0;
+}
+.card {
+  background-color: var(--second);
+}
+.project {
+  text-align: center;
+  padding: 75px;
 }
 
 /* .formBG {
