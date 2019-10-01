@@ -54,8 +54,15 @@
   min-height: 953px;
   padding: 100px 0 100px 0;
 }
-.card {
+
+.homepageImg {
   background-color: var(--second);
+  background-size: cover;
+  min-height: 953px;
+  padding: 0px 0 100px 0;
+}
+.card {
+  /* background-color: var(--second); */
 }
 .project {
   text-align: center;
