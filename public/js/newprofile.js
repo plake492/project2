@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   $("#signup").on("click", function (event) {
     event.preventDefault();
 
@@ -26,14 +27,14 @@ $(document).ready(function () {
     const state = $("#newState")
       .val()
       .trim();
-    const zipCode = $("#newZipCode")
+    const zipcode = $("#newZipCode")
       .val()
       .trim();
     const country = $("#newCountry")
       .val()
       .trim();
 
-    function captureNewUserData(event) {
+    function captureUserData(event) {
       if (
         !username ||
         !password ||
@@ -52,40 +53,61 @@ $(document).ready(function () {
         name: name,
         address: address,
         addressLine2: addressLine2,
-        state,
-        zipcode,
-        country
+        city: city,
+        state: state,
+        zipcode: zipcode,
+        country: country
       };
 
+      addNewUser(
+        newUser.username,
+        newUser.password,
+        newUser.email,
+        newUser.email,
+        newUser.address,
+        newUser.addressLine2,
+        newUser.city,
+        newUser.state,
+        newUser.zipcode,
+        newUser.country
+      );
+
       console.log(newUser);
-      addNewUser(newUser);
+      // addNewUser(newUser);
     }
 
-    $("form").trigger("reset");
-
-
-    function addNewUser(newUserData) {
-      $.post("/api/signup", newUserData)
-        .then(getUsers(newUserData));
-      console.log("THIS IS THE POST DATA" + newUserData)
-
+    function addNewUser(username, password, email, name, address, addressLine2, city, state, zipcode, country) {
+      $.post("/api/signup", {
+        username: username,
+        password: password,
+        email: email,
+        name: name,
+        address: address,
+        addressLine2: addressLine2,
+        city: city,
+        state: state,
+        zipcode: zipcode,
+        country: country
+      }).then(function (data) {
+        console.log(data)
+        window.location.replace(data)
+      })
     }
-
-    // function getUsers() {
-    //   $.get("/api/signup", function (data) {
-    //     console.log(data);
-    //     // for (var i = 0; i < data.length; i++) {
-    //     //   rowsToAdd.push(createAuthorRow(data[i]));
-    //     // }
-    //     // renderAuthorList(rowsToAdd);
-    //     // nameInput.val("");
-    //   });
-    // }
-    function getUsers() {
-      $.get("/api/signup", function (data) {
-        console.log(data);
-      });
-    }
-    captureNewUserData();
+    captureUserData();
   });
+  // function getUsers() {
+  //   $.get("/api/signup", function (data) {
+  //     console.log(data);
+  //     // for (var i = 0; i < data.length; i++) {
+  //     //   rowsToAdd.push(createAuthorRow(data[i]));
+  //     // }
+  //     // renderAuthorList(rowsToAdd);
+  //     // nameInput.val("");
+  //   });
+  // }
+  // function getUsers() {
+  //   $.get("/api/signup", function (data) {
+  //     console.log(data);
+  //   });
+  // }
 });

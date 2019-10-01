@@ -53,7 +53,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    zipCode: {
+    zipcode: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
